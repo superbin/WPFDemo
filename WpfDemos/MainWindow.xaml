@@ -6,7 +6,62 @@
         xmlns:local="clr-namespace:WpfDemos"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="1. Progress Bar" Click="Button_Click"/>
-    </Grid>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button x:Name="BoldToolButton" Content="B" FontWeight="Bold" Width="20" Click="BoldToolButton_Click"/>
+                <Button Content="I" FontStyle="Italic" Width="20"/>
+                <Button Width="20">
+                    <TextBlock Text="U" TextDecorations="Underline"/>
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <ComboBox Width="50">
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="12" IsSelected="True"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="16"/>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <WrapPanel Margin="4" DockPanel.Dock="Top">
+            <Button  x:Name="ButtonProgressBar" Content="1. Progress Bar" Click="ButtonProgressBar_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonSlider" Content="2. Slider Bar" Click="ButtonSlider_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonCalendar" Content="3. Calendar" Click="ButtonCalendar_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonListBox" Content="4. ListBox" Click="ButtonListBox_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonComboBox" Content="5. ComboBox" Click="ButtonComboBox_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonGrid" Content="6. Grid" Click="ButtonGrid_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button  x:Name="ButtonCanvas" Content="7. Canvas" Click="ButtonCanvas_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+        </WrapPanel>
+        <StatusBar Height="26" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem Content="Running Process ..." Grid.Column="0"/>
+            <Separator Width="1" Grid.Column="1"/>
+            <Separator Width="1" Grid.Column="3"/>
+            <StatusBarItem Grid.Column="4">
+                <ProgressBar IsIndeterminate="True" Width="100" Height="15"/>
+            </StatusBarItem>
+        </StatusBar>
+    </DockPanel>
+    
 </Window>

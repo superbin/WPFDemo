@@ -25,9 +25,51 @@ namespace WpfDemos
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonProgressBar_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ProgressBar();
+            window.Show();
+        }
+
+        private void ButtonSlider_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Slider();
+            window.Show();
+        }
+
+        private void ButtonCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Calendar();
+            window.Show();
+        }
+
+        private void ButtonListBox_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ListBox();
+            window.Show();
+        }
+
+        private void ButtonComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ComboBox();
+            window.Show();
+        }
+
+        private void BoldToolButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ButtonGrid_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Grid();
+            window.Show();
+        }
+
+        private void ButtonCanvas_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Canvas();
+            window.Show();
         }
     }
 }
