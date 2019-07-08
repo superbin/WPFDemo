@@ -71,5 +71,17 @@ namespace WpfDemos
             var window = new Canvas();
             window.Show();
         }
+
+        private void ButtonDragDrop_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new DragDrop();
+            window.Show();
+        }
+
+        private void ButtonDataBinding_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new DataBinding();
+            window.Show();
+        }
     }
 }

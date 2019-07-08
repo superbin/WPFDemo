@@ -40,6 +40,10 @@
                  BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
             <Button  x:Name="ButtonCanvas" Content="7. Canvas" Click="ButtonCanvas_Click"
                  BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button x:Name="ButtonDragDrop" Content="8. Drag Drop" Click="ButtonDragDrop_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+            <Button x:Name="ButtonDataBinding" Content="9. Data Binding" Click="ButtonDataBinding_Click"
+                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
         </WrapPanel>
         <StatusBar Height="26" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
             <StatusBar.ItemsPanel>
