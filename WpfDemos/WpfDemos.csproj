@@ -70,15 +70,18 @@
     <Compile Include="DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="Grid.xaml.cs">
       <DependentUpon>Grid.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Person.cs" />
     <Compile Include="Slider.xaml.cs">
       <DependentUpon>Slider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TextBoxExtensions.cs" />
     <Page Include="Calendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

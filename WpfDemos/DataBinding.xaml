@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemos"
+        xmlns:extension="clr-namespace:WpfDemos"
         mc:Ignorable="d"
         Title="DataBinding" Height="450" Width="800"
         x:Name="window">
@@ -18,6 +19,9 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Your department" Grid.Row="0" Grid.Column="0"/>
         <TextBlock Text=":" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
@@ -29,5 +33,27 @@
             <Button x:Name="submit" Content="Submit" Margin="4" Width="80" Click="Submit_Click"/>
             <Button x:Name="reset" Content="Reset" Margin="4" Width="80" Click="Reset_Click"/>
         </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="15">
+            <TextBox Text="Normal TextBox Control" Width="200" Height="30" Margin="4"/>
+            <TextBox Text="Select On Focus:Enabled" extension:TextBoxExtensions.SelectOnFocus="True" Width="200" Height="30" Margin="4"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+            <TextBlock Margin="0 0 0 20" TextWrapping="Wrap">
+                <Run Text="{Binding Name}"/> blogs at <Hyperlink NavigateUri="{Binding Blog}"><Run Text="{Binding Blog}"/></Hyperlink> and has <Run Text="{Binding Experience}"/> years of experience.
+            </TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Enter years of experiences:"/>
+                <TextBox Text="{Binding Experience, Mode=TwoWay}" Margin="10 0" Width="50"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                    <DataGridTextColumn Header="Department" Binding="{Binding Department}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
