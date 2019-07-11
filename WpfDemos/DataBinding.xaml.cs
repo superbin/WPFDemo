@@ -36,16 +36,19 @@ namespace WpfDemos
             {
                 new Employee
                 {
+                    ID="EMP0001",
                     FirstName = "Kunal", LastName = "Chowdhury",
                     Department = "Software Division"
                 },
                 new Employee
                 {
+                    ID="EMP0002",
                     FirstName = "Michael", LastName = "Washington",
                     Department = "Software Division"
                 },
                 new Employee
                 {
+                    ID="EMP0003",
                     FirstName = "John", LastName = "Strokes",
                     Department = "Finance Department"
                 }
@@ -115,6 +118,50 @@ namespace WpfDemos
         public static readonly DependencyProperty EmployeesProperty =
             DependencyProperty.Register("Employees", typeof(ObservableCollection<Employee>), typeof(DataBinding), new PropertyMetadata(null));
 
+        private void SortByDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            var cvs = CollectionViewSource.GetDefaultView(dataGrid.ItemsSource);
+            if (cvs != null && cvs.CanSort)
+            {
+                cvs.SortDescriptions.Clear();
+                if (sortByDepartment.IsChecked == true)
+                {
+                    cvs.SortDescriptions.Add(new SortDescription("Department", ListSortDirection.Ascending));
+                }
+            }
+        }
 
+        private void GroupByDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            var cvs = CollectionViewSource.GetDefaultView(dataGrid.ItemsSource);
+            if (cvs != null && cvs.CanGroup)
+            {
+                cvs.GroupDescriptions.Clear();
+                if (groupByDepartment.IsChecked == true)
+                {
+                    cvs.GroupDescriptions.Add(new PropertyGroupDescription("Department"));
+                }
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var cvs = CollectionViewSource.GetDefaultView(dataGrid.ItemsSource);
+            if (cvs != null && cvs.CanFilter)
+            {
+                cvs.Filter = OnFilterApplied;
+            }
+        }
+        private bool OnFilterApplied(object obj)
+        {
+            if (obj is Employee emp)
+            {
+                var searchText = searchBox.Text.ToLower();
+                return emp.Department.ToLower().Contains(searchText) ||
+                    emp.FirstName.ToLower().Contains(searchText) ||
+                    emp.LastName.ToLower().Contains(searchText);
+            }
+            return false;
+        }
     }
 }

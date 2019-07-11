@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemos"
         xmlns:extension="clr-namespace:WpfDemos"
+        xmlns:converters="clr-namespace:WpfDemos"
         mc:Ignorable="d"
-        Title="DataBinding" Height="450" Width="800"
+        Title="DataBinding" Height="600" Width="800"
         x:Name="window">
+    <Window.Resources>
+        <SolidColorBrush Color="GreenYellow" x:Key="myBrush"/>
+        <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -23,21 +28,19 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Your department" Grid.Row="0" Grid.Column="0"/>
-        <TextBlock Text=":" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
-        <TextBlock Text="{Binding Department, ElementName=window}" Margin="2" Grid.Row="0" Grid.Column="2"/>
-        <TextBlock Text="Your name" Grid.Row="1" Grid.Column="0"/>
-        <TextBlock Text=":" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding PersonName, ElementName=window, Mode=TwoWay}" Margin="0 2" Grid.Row="1" Grid.Column="2"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+        <TextBlock Text="Your department : " Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="{Binding Department, ElementName=window}" Margin="2" Grid.Row="0" Grid.Column="1"/>
+        <TextBlock Text="Your name : " Grid.Row="1" Grid.Column="0"/>
+        <TextBox Text="{Binding PersonName, ElementName=window, Mode=TwoWay}" Margin="0 2" Grid.Row="1" Grid.Column="1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
             <Button x:Name="submit" Content="Submit" Margin="4" Width="80" Click="Submit_Click"/>
             <Button x:Name="reset" Content="Reset" Margin="4" Width="80" Click="Reset_Click"/>
         </StackPanel>
-        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="15">
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="15">
             <TextBox Text="Normal TextBox Control" Width="200" Height="30" Margin="4"/>
             <TextBox Text="Select On Focus:Enabled" extension:TextBoxExtensions.SelectOnFocus="True" Width="200" Height="30" Margin="4"/>
         </StackPanel>
-        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+        <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
             <TextBlock Margin="0 0 0 20" TextWrapping="Wrap">
                 <Run Text="{Binding Name}"/> blogs at <Hyperlink NavigateUri="{Binding Blog}"><Run Text="{Binding Blog}"/></Hyperlink> and has <Run Text="{Binding Experience}"/> years of experience.
             </TextBlock>
@@ -46,14 +49,67 @@
                 <TextBox Text="{Binding Experience, Mode=TwoWay}" Margin="10 0" Width="50"/>
             </StackPanel>
         </StackPanel>
-        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False">
+        <StackPanel Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="4 8">
+                <TextBlock Text="Filter records: "/>
+                <TextBox x:Name="searchBox" Width="100" TextChanged="SearchBox_TextChanged"/>
+            </StackPanel>
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="EMP ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
-                    <DataGridTextColumn Header="Last Name" Binding="{Binding Lastname}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
                     <DataGridTextColumn Header="Department" Binding="{Binding Department}"/>
                 </DataGrid.Columns>
+                <DataGrid.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Margin" Value="0,0,0,5"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                            <Expander IsExpanded="True">
+                                                <Expander.Header>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Path=Name}" Margin="5, 0, 0, 0"/>
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <TextBlock Margin="5, 0, 0, 0" Text="{Binding Path=ItemCount}"/>
+                                                            <TextBlock Text=" Item(s)"/>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Expander.Header>
+                                                <Expander.Content>
+                                                    <ItemsPresenter/>
+                                                </Expander.Content>
+                                            </Expander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                    </GroupStyle>
+                </DataGrid.GroupStyle>
             </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="sortByDepartment" Content="Sort by Department" Margin="10" Click="SortByDepartment_Click"/>
+                <CheckBox x:Name="groupByDepartment" Content="Group by Department" Margin="10" Click="GroupByDepartment_Click"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="0" Grid.RowSpan="4" Grid.Column="2">
+            <TextBlock FontSize="{Binding Value, ElementName=fontSizeSlider}" Margin="4" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Run Text="Font Size:"/>
+                <Run Text="{Binding Value, ElementName=fontSizeSlider}"/>
+            </TextBlock>
+            <Slider x:Name="fontSizeSlider" Minimum="10" Maximum="40" Value="20" SmallChange="1" LargeChange="5" 
+                    VerticalAlignment="Bottom" Margin="10" TickFrequency="1" IsSnapToTickEnabled="True"/>
         </Grid>
+        <Label Grid.Row="5" Grid.Column="2" Background="{x:Static SystemColors.ControlDarkBrush}" Foreground="{StaticResource myBrush}"
+               Content="This is static binding" 
+               FontSize="25" Width="300" Height="60" Padding="10" Margin="5"/>
+        <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Top" Margin="20">
+            <CheckBox x:Name="chkBox" Content="Show/Hide Box" IsChecked="True"/>
+            <Rectangle Fill="Red" Margin="80 0 0 0" Width="150" Height="50" Visibility="{Binding IsChecked, ElementName=chkBox, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        </StackPanel>
     </Grid>
 </Window>

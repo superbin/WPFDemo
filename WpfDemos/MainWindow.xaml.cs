@@ -83,5 +83,23 @@ namespace WpfDemos
             var window = new DataBinding();
             window.Show();
         }
+
+        private void ButtonCustomControl_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new CustomControl();
+            window.Show();
+        }
+
+        private void ButtonBehavior_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Behavior();
+            window.Show();
+        }
+
+        private void ButtonUserControl_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UserControl();
+            window.Show();
+        }
     }
 }

@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfDemos"
+        xmlns:behavior="http://schema.kunal-chowdhury.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
+        <behavior:TestBehavior></behavior:TestBehavior>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button x:Name="BoldToolButton" Content="B" FontWeight="Bold" Width="20" Click="BoldToolButton_Click"/>
@@ -25,25 +27,31 @@
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>
-        <WrapPanel Margin="4" DockPanel.Dock="Top">
+        <WrapPanel Margin="4" DockPanel.Dock="Top" >
             <Button  x:Name="ButtonProgressBar" Content="1. Progress Bar" Click="ButtonProgressBar_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4" Padding="8"/>
             <Button  x:Name="ButtonSlider" Content="2. Slider Bar" Click="ButtonSlider_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue"  Margin="4"/>
             <Button  x:Name="ButtonCalendar" Content="3. Calendar" Click="ButtonCalendar_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button  x:Name="ButtonListBox" Content="4. ListBox" Click="ButtonListBox_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button  x:Name="ButtonComboBox" Content="5. ComboBox" Click="ButtonComboBox_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button  x:Name="ButtonGrid" Content="6. Grid" Click="ButtonGrid_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button  x:Name="ButtonCanvas" Content="7. Canvas" Click="ButtonCanvas_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button x:Name="ButtonDragDrop" Content="8. Drag Drop" Click="ButtonDragDrop_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
             <Button x:Name="ButtonDataBinding" Content="9. Data Binding" Click="ButtonDataBinding_Click"
-                 BorderBrush="Blue" Width="100" Height="50" Margin="4"/>
+                 BorderBrush="Blue" Margin="4"/>
+            <Button x:Name="ButtonCustomControl" Content="10. Custom Control" Click="ButtonCustomControl_Click"
+                 BorderBrush="Blue" Margin="4"/>
+            <Button x:Name="ButtonBehavior" Content="11. Behavior" Click="ButtonBehavior_Click"
+                 BorderBrush="Blue" Margin="4"/>
+            <Button x:Name="ButtonUserControl" Content="12. User Control" Click="ButtonUserControl_Click"
+                 BorderBrush="Blue" Margin="4"/>
         </WrapPanel>
         <StatusBar Height="26" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
             <StatusBar.ItemsPanel>

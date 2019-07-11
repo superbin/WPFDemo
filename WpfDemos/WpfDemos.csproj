@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,14 +56,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behavior.xaml.cs">
+      <DependentUpon>Behavior.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\TestBehavior.cs" />
+    <Compile Include="BoolToVisibilityConverter.cs" />
     <Compile Include="Calendar.xaml.cs">
       <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorMixer.xaml.cs">
+      <DependentUpon>ColorMixer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorToByteConverter.cs" />
     <Compile Include="ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\TestConverter.cs" />
+    <Compile Include="CustomControl.xaml.cs">
+      <DependentUpon>CustomControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataBinding.xaml.cs">
       <DependentUpon>DataBinding.xaml</DependentUpon>
@@ -74,14 +88,24 @@
     <Compile Include="Grid.xaml.cs">
       <DependentUpon>Grid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GrowTextBehavior.cs" />
     <Compile Include="ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="SearchControl.cs" />
+    <Compile Include="SearchEventArgs.cs" />
     <Compile Include="Slider.xaml.cs">
       <DependentUpon>Slider.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextBoxExtensions.cs" />
+    <Compile Include="UserControl.xaml.cs">
+      <DependentUpon>UserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Behavior.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Calendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,7 +114,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ColorMixer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

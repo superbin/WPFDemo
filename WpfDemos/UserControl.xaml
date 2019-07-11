@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfDemos.UserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemos"
+        mc:Ignorable="d"
+        Title="UserControl" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock>
+            A <Bold>User Control</Bold> is a group of elements and controls joined together to create a reusable component.<LineBreak/>
+            This is often used to show the same UI in multiple places, either on the same window or in a different window.
+        </TextBlock>
+        <local:ColorMixer okButtonClick="ColorMixer_okButtonClick" cancelButtonClick="ColorMixer_cancelButtonClick"/>
+    </StackPanel>
+</Window>
