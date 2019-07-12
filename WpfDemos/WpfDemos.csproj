@@ -93,12 +93,21 @@
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="Resource.xaml.cs">
+      <DependentUpon>Resource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchControl.cs" />
     <Compile Include="SearchEventArgs.cs" />
     <Compile Include="Slider.xaml.cs">
       <DependentUpon>Slider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Style.xaml.cs">
+      <DependentUpon>Style.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextBoxExtensions.cs" />
+    <Compile Include="Trigger.xaml.cs">
+      <DependentUpon>Trigger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl.xaml.cs">
       <DependentUpon>UserControl.xaml</DependentUpon>
     </Compile>
@@ -158,13 +167,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Trigger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl.xaml">
       <SubType>Designer</SubType>
@@ -199,6 +220,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\jabir_avatars.png" />
+    <Content Include="Images\newLauncher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceLibrary\ResourceLibrary.csproj">
+      <Project>{715bbbac-9130-476b-ab18-0eaf36a3fbb4}</Project>
+      <Name>ResourceLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

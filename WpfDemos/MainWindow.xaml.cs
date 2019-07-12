@@ -101,5 +101,23 @@ namespace WpfDemos
             var window = new UserControl();
             window.Show();
         }
+
+        private void ButtonStyle_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Style();
+            window.Show();
+        }
+
+        private void ButtonTrigger_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Trigger();
+            window.Show();
+        }
+
+        private void ButtonResource_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Resource();
+            window.Show();
+        }
     }
 }

@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfDemos.Resource"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDemos"
+        mc:Ignorable="d"
+        Title="Resource" Height="450" Width="800">
+    <StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <Image Source="Images/jabir_avatars.png" Width="100" Margin="8"/>
+            <Image Source="pack://application:,,,/Images/jabir_avatars.png" Width="100" Margin="8"/>
+            <Image Source="Images/newLauncher.png" Width="300" Margin="8"/>
+        </StackPanel>
+        <Image Source="/ResourceLibrary;component/Images/IMG_1109.JPG" Stretch="UniformToFill" />
+    </StackPanel>
+</Window>
