@@ -119,5 +119,17 @@ namespace WpfDemos
             var window = new Resource();
             window.Show();
         }
+
+        private void ButtonLogicalResource_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new LogicalResource();
+            window.Show();
+        }
+
+        private void ButtonMVVM_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new Views.mvvm();
+            window.Show();
+        }
     }
 }

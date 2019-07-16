@@ -42,6 +42,8 @@
             <Button x:Name="ButtonStyle" Content="13. Style" Click="ButtonStyle_Click"/>
             <Button x:Name="ButtonTrigger" Content="14. Trigger" Click="ButtonTrigger_Click"/>
             <Button x:Name="ButtonResource" Content="15. Resource" Click="ButtonResource_Click"/>
+            <Button x:Name="ButtonLogicalResource" Content="16. Logical Resource" Click="ButtonLogicalResource_Click"/>
+            <Button x:Name="ButtonMVVM" Content="17. MVVM" Click="ButtonMVVM_Click"/>
         </WrapPanel>
         <StatusBar Height="26" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
             <StatusBar.ItemsPanel>

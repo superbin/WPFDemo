@@ -74,6 +74,7 @@
     <Compile Include="ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="Converters\TestConverter.cs" />
     <Compile Include="CustomControl.xaml.cs">
       <DependentUpon>CustomControl.xaml</DependentUpon>
@@ -92,6 +93,10 @@
     <Compile Include="ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LogicalResource.xaml.cs">
+      <DependentUpon>LogicalResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Resource.xaml.cs">
       <DependentUpon>Resource.xaml</DependentUpon>
@@ -110,6 +115,10 @@
     </Compile>
     <Compile Include="UserControl.xaml.cs">
       <DependentUpon>UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\WindowMVVM.cs" />
+    <Compile Include="Views\mvvm.xaml.cs">
+      <DependentUpon>mvvm.xaml</DependentUpon>
     </Compile>
     <Page Include="Behavior.xaml">
       <SubType>Designer</SubType>
@@ -151,6 +160,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LogicalResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -179,6 +192,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -188,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\mvvm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,5 +254,6 @@
       <Name>ResourceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
